@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Экран персонажа</title>
+        <style>
+
+            .character-block {
+                width: 300px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                overflow: hidden;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .character-header {
+                display: flex;
+                padding: 15px;
+                background-color: #f5f5f5;
+            }
+
+            .avatar {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                margin-right: 15px;
+                object-fit: cover;
+            }
+
+            .character-info {
+                flex: 1;
+            }
+
+            .name {
+                font-size: 18px;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .level {
+                font-size: 14px;
+                color: #666;
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .energy-bar {
+                width: 100%;
+                height: 10px;
+                background-color: #e0e0e0;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            .energy-fill {
+                height: 100%;
+                background-color: #4CAF50;
+                transition: width 0.3s ease;
+            }
+
+            .character-details {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                background-color: #fff;
+            }
+
+            .character-details.active {
+                max-height: 200px;
+            }
+
+            .detail-item {
+                padding: 10px 15px;
+                border-top: 1px solid #eee;
+            }
+
+            .detail-item span {
+                font-weight: bold;
+                margin-right: 10px;
+            }
+
+            .menu {
+                display: flex;
+                position: fixed;
+                bottom: 0px;
+                width: 400px;
+                height: 50px;
+                flex-direction: row;
+                justify-content: center;
+                padding: 10px;
+                margin: 0 auto;
+                background: #1a1a1a;
+                color: white;
+                border-radius: 10px;
+                overflow: hidden;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .icons {
+                display: block;
+                padding: 5px;
+                width: 30px;
+                height: 30px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="character-block">
+            <div class="character-header">
+                <img src="avatar.jpg" alt="Аватар" class="avatar">
+                <div class="character-info">
+                    <span class="name">Игрок</span>
+                    <span class="level">Уровень: 15</span>
+                    <div class="energy-bar">
+                        <div class="energy-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-details">
+                <div class="detail-item"><span>Сила</span> 12</div>
+                <div class="detail-item"><span>Ловкость</span> 12</div>
+                <div class="detail-item"><span>Интеллект</span> 12</div>
+                <div class="detail-item"><span>Выносливость</span> 12</div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <div><img class="icons" src="assets/castle.png" alt="Замок"></div>
+            <div><img class="icons" src="assets/map.png" alt="карта"></div>
+            <div><img class="icons" src="assets/chest.png" alt="сундук"></div>
+            <div><img class="icons" src="assets/clan.png" alt="клан"></div>
+            <div><img class="icons" src="assets/trophy.png" alt="Рекорды"></div>
+        </div>
+
+    <script>
+
+            document.querySelector('.character-block').addEventListener('click', function() {
+                const details = this.querySelector('.character-details');
+                details.classList.toggle('active');
+
+                if (details.classList.contains('active')) {
+                    details.style.maxHeight = details.scrollHeight + 'px';
+                } else {
+                    details.style.maxHeight = '0';
+                }
+            });
+
+    </script>
+    </body>
+</html>
+
+
+
+

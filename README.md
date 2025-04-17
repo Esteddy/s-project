@@ -1,2 +1,1 @@
-# s-project
-Telegram mini app
+# mini-app-project
